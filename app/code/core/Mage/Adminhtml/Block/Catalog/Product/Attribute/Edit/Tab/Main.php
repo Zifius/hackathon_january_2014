@@ -117,11 +117,18 @@ class Mage_Adminhtml_Block_Catalog_Product_Attribute_Edit_Tab_Main extends Mage_
             'required'    => true
         ), 'frontend_class');
 
+        $fieldset->addField('note', 'text', array(
+            'name'  => 'note',
+            'label' => Mage::helper('catalog')->__('Notes'),
+            'title' => Mage::helper('catalog')->__('Notes'),
+            'note'  => Mage::helper('catalog')->__('Visible only in admin panel'),
+        ), 'apply_to');
+
         $fieldset->addField('is_configurable', 'select', array(
             'name' => 'is_configurable',
             'label' => Mage::helper('catalog')->__('Use To Create Configurable Product'),
             'values' => $yesnoSource,
-        ), 'apply_to');
+        ), 'note');
 
         // frontend properties fieldset
         $fieldset = $form->addFieldset('front_fieldset', array('legend'=>Mage::helper('catalog')->__('Frontend Properties')));
